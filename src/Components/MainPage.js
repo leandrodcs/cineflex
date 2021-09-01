@@ -7,22 +7,22 @@ export default function MainPage() {
             <div className="header">Selecione o filme</div>
             <ul className="movies-list">
                 <li className="movie-banner">
-                    <img src="https://cdn.awsli.com.br/600x700/1610/1610163/produto/62282009/poster-batman-o-caveleiro-das-trevas-dark-knight-8-7d570fb4.jpg"/>
+                    <img src="https://i.pinimg.com/736x/81/c9/e5/81c9e59f12e05add26b5541a9fe807e5.jpg"/>
                 </li>
                 <li className="movie-banner">
-                    <img src="https://cdn.awsli.com.br/600x700/1610/1610163/produto/62282009/poster-batman-o-caveleiro-das-trevas-dark-knight-8-7d570fb4.jpg"/>
+                    <img src="https://i.pinimg.com/736x/81/c9/e5/81c9e59f12e05add26b5541a9fe807e5.jpg"/>
                 </li>
                 <li className="movie-banner">
-                    <img src="https://cdn.awsli.com.br/600x700/1610/1610163/produto/62282009/poster-batman-o-caveleiro-das-trevas-dark-knight-8-7d570fb4.jpg"/>
+                    <img src="https://i.pinimg.com/736x/81/c9/e5/81c9e59f12e05add26b5541a9fe807e5.jpg"/>
                 </li>
                 <li className="movie-banner">
-                    <img src="https://cdn.awsli.com.br/600x700/1610/1610163/produto/62282009/poster-batman-o-caveleiro-das-trevas-dark-knight-8-7d570fb4.jpg"/>
+                    <img src="https://i.pinimg.com/736x/81/c9/e5/81c9e59f12e05add26b5541a9fe807e5.jpg"/>
                 </li>
                 <li className="movie-banner">
-                    <img src="https://cdn.awsli.com.br/600x700/1610/1610163/produto/62282009/poster-batman-o-caveleiro-das-trevas-dark-knight-8-7d570fb4.jpg"/>
+                    <img src="https://i.pinimg.com/736x/81/c9/e5/81c9e59f12e05add26b5541a9fe807e5.jpg"/>
                 </li>
                 <li className="movie-banner">
-                    <img src="https://cdn.awsli.com.br/600x700/1610/1610163/produto/62282009/poster-batman-o-caveleiro-das-trevas-dark-knight-8-7d570fb4.jpg"/>
+                    <img src="https://i.pinimg.com/736x/81/c9/e5/81c9e59f12e05add26b5541a9fe807e5.jpg"/>
                 </li>
             </ul>
         </main>

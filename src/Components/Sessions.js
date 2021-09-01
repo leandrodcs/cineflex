@@ -1,16 +1,30 @@
+import Footer from './Footer';
 import './Sessions.css';
 
 export default function Sessions() {
     return (
         <>
-        <main className="wrapper">
-            <div className="header">Selecione o horário</div>
-            <ul className="sessions-list">
-                <li className="movie-banner">
-                    <img src="https://i.pinimg.com/originals/1e/a1/fe/1ea1fe86f131b466ab5fa85650087191.jpg"/>
-                </li>
-            </ul>
-        </main>
+            <main className="wrapper">
+                <div className="header">Selecione o horário</div>
+                <ul className="days-list">
+                    <li className="day">
+                        <div className="day-header">Quinta-feira - 24/06/2021</div>
+                        <ul className="sessions">
+                            <li className="session">15:00</li>
+                            <li className="session">19:00</li>
+                        </ul>
+                    </li>
+                    <li className="day">
+                        <div className="day-header">Quinta-feira - 24/06/2021</div>
+                        <ul className="sessions">
+                            <li className="session">15:00</li>
+                            <li className="session">19:00</li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </main>
+            <Footer />
         </>
     )
 }
