@@ -1,0 +1,76 @@
+.seats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px 7px;
+}
+.seat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: #c3cfd9;
+  border: 1px solid #808f9d;
+  border-radius: 12px;
+  font-size: 11px;
+  color: #000000;
+  letter-spacing: 0.04em;
+}
+.seats-label {
+  display: flex;
+  margin-top: 16px;
+}
+.seats-label div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 0 auto;
+}
+.ball {
+  width: 25px;
+  height: 25px;
+  border-radius: 17px;
+}
+.label {
+  font-size: 13px;
+  color: #4e5a65;
+  height: 28px;
+  line-height: 15px;
+}
+.buyer-info {
+  font-size: 18px;
+  color: #293845;
+}
+.buyer-info p {
+  margin-bottom: 2px;
+}
+.buyer-info:nth-child(even) {
+  margin-top: 40px;
+  margin: 40px 0 8px 0;
+}
+.buyer-info input {
+  width: 100%;
+  height: 51px;
+  font-size: 18px;
+  line-height: 21px;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid #d5d5d5;
+}
+.buyer-info input::placeholder {
+  color: #afafaf;
+}
+.selected {
+  background: #8dd7cf;
+  border: 1px solid #1aae9e;
+}
+.available {
+  background: #c3cfd9;
+  border: 1px solid #7b8b99;
+}
+.unavailable {
+  background: #fbe192;
+  border: 1px solid #f7c52b;
+}
