@@ -7,6 +7,7 @@ import Sessions from './Sessions';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Loading from './Loading';
 
 export default function App() {
 
@@ -18,7 +19,14 @@ export default function App() {
             setMoviesList([...res.data])
             console.log(res);
         });
-    },[])
+    },[]);
+
+    if(moviesList.length === 0) {
+        return (
+            <Loading />
+        )
+    }
+
 
     return (
         <>
