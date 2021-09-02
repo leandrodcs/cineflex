@@ -39,7 +39,7 @@ export default function Seats() {
                     <p>CPF do comprador:</p>
                     <input placeholder="Digite seu CPF..."></input>
                 </div>
-                <button>Voltar para Home</button>
+                <button>Reservar assento(s)</button>
             </main>
             <Footer isSeat/>
         </>
