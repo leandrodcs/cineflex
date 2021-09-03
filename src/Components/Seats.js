@@ -5,12 +5,13 @@ import axios from 'axios';
 import { useParams } from 'react-router';
 import Loading from './Loading';
 import Seat from './Seat';
+import { Link } from 'react-router-dom';
 
 export default function Seats() {
 
     const {idSessao} = useParams();
     const [sessionInfo, setSessionInfo] = useState([]);
-    const [seats, setSeats] = useState([]);
+    const [seatsSelected, setSeatsSelected] = useState([]);
 
 
     useEffect(() => {
@@ -24,13 +25,28 @@ export default function Seats() {
             <Loading />
         )
     }
+    function selectOrRemoveSeat(seatSelected, selecting) {
+        if(selecting) {
+            setSeatsSelected([...seatsSelected, seatSelected])
+            console.log("ta selecionando!");
+        }
+        else {
+            setSeatsSelected(seatsSelected.filter((seat) => !(seat.id === seatSelected.id)))
+            console.log("ta removendo!");
+        }
+    }
+    console.log(seatsSelected);
 
     return (
         <>
             <main className="wrapper">
                 <div className="header">{"Selecione o(s) assento(s)"}</div>
                 <ul className="seats">
-                    {sessionInfo.seats.map((seat) => <Seat seat={seat} key={seat.id}/>)}
+                    {sessionInfo.seats.map((seat) => <Seat 
+                    selectOrRemoveSeat={selectOrRemoveSeat} 
+                    seat={seat} 
+                    key={seat.id}/>
+                    )}
                 </ul>
                 <div className="seats-label">
                     <div>
@@ -54,7 +70,7 @@ export default function Seats() {
                     <p>CPF do comprador:</p>
                     <input placeholder="Digite seu CPF..."></input>
                 </div>
-                <button>Reservar assento(s)</button>
+                    <button>Reservar assento(s)</button>
             </main>
             <Footer isSeat={true} movieInfo={sessionInfo}/>
         </>

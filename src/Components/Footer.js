@@ -1,7 +1,6 @@
 import './Footer.css';
 
 export default function Footer({isSeat, movieInfo}) {
-    console.log(movieInfo);
     let title = "";
     let posterURL = "";
     let name = "";

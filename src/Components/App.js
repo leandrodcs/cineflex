@@ -17,7 +17,6 @@ export default function App() {
         axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies`)
         .then(res => {
             setMoviesList([...res.data])
-            console.log(res);
         });
     },[]);
 
