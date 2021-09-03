@@ -1,7 +1,33 @@
 import Footer from './Footer';
 import "./Seats.css";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router';
+import Loading from './Loading';
 
 export default function Seats() {
+
+    const {idSessao} = useParams();
+    const [sessionInfo, setSessionInfo] = useState([]);
+
+    useEffect(() => {
+        axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${idSessao}/seats`)
+        .then(res => {
+            console.log(res);
+            setSessionInfo(res.data);
+        });
+    },[]);
+    console.log(sessionInfo);
+    if(sessionInfo.length === 0) {
+        return (
+            <Loading />
+        )
+    }
+
+
+
+
+
     const arr = [
         "01","02","03","04","05","06","07","08","09","10",
         "01","02","03","04","05","06","07","08","09","10",
@@ -41,7 +67,7 @@ export default function Seats() {
                 </div>
                 <button>Reservar assento(s)</button>
             </main>
-            <Footer isSeat/>
+            <Footer isSeat={true} movieInfo={sessionInfo}/>
         </>
     )
 }

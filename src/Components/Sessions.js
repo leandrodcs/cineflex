@@ -58,7 +58,7 @@ export default function Sessions() {
                     </li>
                 </ul>
             </main>
-            <Footer />
+            <Footer isSeat={false} movieInfo={movieInfo}/>
         </>
     )
 }
