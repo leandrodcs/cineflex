@@ -28,7 +28,7 @@
   align-items: center;
   margin: 0 auto 0 auto;
 }
-.ball {
+.circle {
   width: 25px;
   height: 25px;
   border-radius: 17px;
@@ -62,10 +62,7 @@
 .buyer-info input::placeholder {
   color: #afafaf;
 }
-.selected {
-  background: #8dd7cf;
-  border: 1px solid #1aae9e;
-}
+
 .available {
   background: #c3cfd9;
   border: 1px solid #7b8b99;
@@ -73,4 +70,8 @@
 .unavailable {
   background: #fbe192;
   border: 1px solid #f7c52b;
+}
+.selected {
+  background: #8dd7cf;
+  border: 1px solid #1aae9e !important;
 }

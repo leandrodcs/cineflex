@@ -18,10 +18,6 @@ export default function Footer({isSeat, movieInfo}) {
         weekday =movieInfo.day.weekday;
     }
 
-
-
-
-
     return (
         <>
             <footer>
