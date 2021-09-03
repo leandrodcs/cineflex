@@ -14,7 +14,7 @@ export default function App() {
     const [moviesList, setMoviesList] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies`)
+        axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies`)
         .then(res => {
             setMoviesList([...res.data])
             console.log(res);
