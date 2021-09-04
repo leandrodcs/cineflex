@@ -29,20 +29,23 @@ export default function App() {
 
     function selectOrRemoveSeat(seatSelected, selecting) {
         if(selecting) {
-            setSeatsSelected([...seatsSelected, {id: seatSelected.id}])
+            setSeatsSelected([...seatsSelected, {idAssento: seatSelected.id}])
         }
         else {
-            setSeatsSelected(seatsSelected.filter((seat) => !(seat.id === seatSelected.id)))
+            setSeatsSelected(seatsSelected.filter((seat) => !(seat.idAssento === seatSelected.id)))
+            console.log(seatsSelected);
+            console.log(seatSelected);
         }
     }
     function updateBuyerInfo(buyerName, buyerCpf, selectedId) {
         for(let i = 0; i < seatsSelected.length ; i ++) {
-            if(seatsSelected[i].id === selectedId) {
+            if(seatsSelected[i].idAssento === selectedId) {
                 seatsSelected[i].nome = buyerName;
                 seatsSelected[i].cpf = buyerCpf;
             }
         }
     }
+    console.log(`seatSelected:`, seatsSelected);
 
     return (
         <>
@@ -59,7 +62,7 @@ export default function App() {
                         <Seats selectOrRemoveSeat={selectOrRemoveSeat} seatsSelected={seatsSelected} updateBuyerInfo={updateBuyerInfo}/>
                     </Route>
                     <Route exact path="/sucesso">
-                        <ConfirmationPage />
+                        <ConfirmationPage seatsSelected={seatsSelected}/>
                     </Route>
                 </Switch>
             </BrowserRouter>

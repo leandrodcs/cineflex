@@ -11,9 +11,6 @@ export default function Sessions() {
     const {idFilme} = useParams();
     const [movieInfo, setMovieInfo] = useState([]);
 
-
-    console.log(idFilme);
-
     useEffect(() => {
         axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idFilme}/showtimes`)
         .then(res => {
@@ -26,10 +23,6 @@ export default function Sessions() {
             <Loading />
         )
     }
-    console.log(movieInfo);
-
-
-
 
     return (
         <>

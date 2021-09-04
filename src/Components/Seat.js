@@ -16,7 +16,7 @@ export default function Seat({seat, selectOrRemoveSeat}) {
             if(window.confirm("Você quer mesmo remover este assento?")) {
                 setSelected("");
                 selectOrRemoveSeat(seat, false);
-            };
+            }
         }
     }
 

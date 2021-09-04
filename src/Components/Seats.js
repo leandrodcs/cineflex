@@ -14,9 +14,10 @@ export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInf
     const [seatsInfo, setSeatsInfo] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${idSessao}/seats`)
+        axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${idSessao}/seats`)
         .then(res => {
             setSeatsInfo(res.data);
+            console.log(res.data);
         });
     },[]);
     if(seatsInfo.length === 0) {
@@ -52,7 +53,6 @@ export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInf
                 </div>
                 {seatsSelected.map((selectedInfo) => <BuyerInfo updateBuyerInfo={updateBuyerInfo} selectedInfo={selectedInfo} seatsInfo={seatsInfo.seats} key={selectedInfo.id}/>)}
                 {seatsSelected.length ? <Link to="/sucesso"><button>Reservar assento(s)</button></Link> : ""}
-
             </main>
             <Footer isSeat={true} movieInfo={seatsInfo}/>
         </>

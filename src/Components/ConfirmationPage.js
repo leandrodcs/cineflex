@@ -1,9 +1,29 @@
 import './ConfirmationPage.css';
 import Loading from './Loading';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
-export default function ConfirmationPage() {
+export default function ConfirmationPage({seatsSelected}) {
+    const [load, setLoad] = useState(true);
 
+    useEffect(() => {
+        const body = {
+            ids: seatsSelected.map(s => s.idAssento),
+            compradores: seatsSelected,
+        }
+        axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many`, body)
+        .then(res => {
+            console.log(`resp -> ${res}`);
+            console.log(`body -> ${body}`)
+            setLoad(false);
+        });
+    },[]);
+    if(load) {
+        return (
+            <Loading />
+        )
+    }
 
     return (
         <main className="wrapper">
@@ -25,6 +45,5 @@ export default function ConfirmationPage() {
             </div>
             <button>Voltar para Home</button>
         </main>
-
     )
 }

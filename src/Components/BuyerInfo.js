@@ -3,10 +3,10 @@ import { useState } from "react";
 export default function BuyerInfo({selectedInfo, updateBuyerInfo, seatsInfo}) {
     const [buyerName, setBuyerName] = useState("");
     const [buyerCpf, setBuyerCpf] = useState("");
-    let selectedSeatId = selectedInfo.id;
+    let selectedSeatId = selectedInfo.idAssento;
     let seatName;
     for(let i = 0; i < seatsInfo.length ; i++) {
-        if(seatsInfo[i].id === selectedInfo.id) {
+        if(seatsInfo[i].id === selectedInfo.idAssento) {
             seatName = seatsInfo[i].name;
         }
     }
