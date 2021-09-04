@@ -12,6 +12,7 @@ import Loading from './Loading';
 export default function App() {
 
     const [moviesList, setMoviesList] = useState([]);
+    const [seatsSelected, setSeatsSelected] = useState([]);
 
     useEffect(() => {
         axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies`)
@@ -24,6 +25,17 @@ export default function App() {
         return (
             <Loading />
         )
+    }
+
+    function selectOrRemoveSeat(seatSelected, selecting) {
+        if(selecting) {
+            setSeatsSelected([...seatsSelected, {id: seatSelected.id, nome: "", cpf: ""}])
+        }
+        else {
+            setSeatsSelected(seatsSelected.filter((seat) => !(seat.id === seatSelected.id)))
+        }
+    }
+    function updateBuyerInfo() {
     }
 
 
@@ -39,9 +51,9 @@ export default function App() {
                         <Sessions /> 
                     </Route>
                     <Route exact path="/assentos/:idSessao">
-                        <Seats />
+                        <Seats selectOrRemoveSeat={selectOrRemoveSeat} seatsSelected={seatsSelected} updateBuyerInfo={updateBuyerInfo}/>
                     </Route>
-                    <Route exact path="/confirmation">
+                    <Route exact path="/sucesso">
                         <ConfirmationPage />
                     </Route>
                 </Switch>

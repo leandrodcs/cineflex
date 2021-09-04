@@ -6,43 +6,34 @@ import { useParams } from 'react-router';
 import Loading from './Loading';
 import Seat from './Seat';
 import { Link } from 'react-router-dom';
+import BuyerInfo from './BuyerInfo';
 
-export default function Seats() {
+export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInfo}) {
 
     const {idSessao} = useParams();
-    const [sessionInfo, setSessionInfo] = useState([]);
-    const [seatsSelected, setSeatsSelected] = useState([]);
+    const [seatsInfo, setSeatsInfo] = useState([]);
+
 
 
     useEffect(() => {
         axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${idSessao}/seats`)
         .then(res => {
-            setSessionInfo(res.data);
+            setSeatsInfo(res.data);
         });
     },[]);
-    if(sessionInfo.length === 0) {
+    if(seatsInfo.length === 0) {
         return (
             <Loading />
         )
     }
-    function selectOrRemoveSeat(seatSelected, selecting) {
-        if(selecting) {
-            setSeatsSelected([...seatsSelected, seatSelected])
-            console.log("ta selecionando!");
-        }
-        else {
-            setSeatsSelected(seatsSelected.filter((seat) => !(seat.id === seatSelected.id)))
-            console.log("ta removendo!");
-        }
-    }
-    console.log(seatsSelected);
+
 
     return (
         <>
             <main className="wrapper">
                 <div className="header">{"Selecione o(s) assento(s)"}</div>
                 <ul className="seats">
-                    {sessionInfo.seats.map((seat) => <Seat 
+                    {seatsInfo.seats.map((seat) => <Seat 
                     selectOrRemoveSeat={selectOrRemoveSeat} 
                     seat={seat} 
                     key={seat.id}/>
@@ -62,17 +53,11 @@ export default function Seats() {
                         <div className="label">Indisponível</div>
                     </div>
                 </div>
-                <div className="buyer-info">
-                    <p>Nome do comprador:</p>
-                    <input placeholder="Digite seu nome..."></input>
-                </div>
-                <div className="buyer-info">
-                    <p>CPF do comprador:</p>
-                    <input placeholder="Digite seu CPF..."></input>
-                </div>
-                    <button>Reservar assento(s)</button>
+                {seatsSelected.map((selectedInfo) => <BuyerInfo updateBuyerInfo={updateBuyerInfo} selectedInfo={selectedInfo} seatsInfo={seatsInfo.seats} key={selectedInfo.id}/>)}
+                {seatsSelected.length ? <Link to="/sucesso"><button>Reservar assento(s)</button></Link> : ""}
+
             </main>
-            <Footer isSeat={true} movieInfo={sessionInfo}/>
+            <Footer isSeat={true} movieInfo={seatsInfo}/>
         </>
     )
 }

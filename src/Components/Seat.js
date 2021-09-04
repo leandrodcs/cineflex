@@ -13,8 +13,10 @@ export default function Seat({seat, selectOrRemoveSeat}) {
             selectOrRemoveSeat(seat, true);
         }
         if (selected === "selected"){
-            setSelected("");
-            selectOrRemoveSeat(seat, false);
+            if(window.confirm("Você quer mesmo remover este assento?")) {
+                setSelected("");
+                selectOrRemoveSeat(seat, false);
+            };
         }
     }
 
