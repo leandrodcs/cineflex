@@ -6,16 +6,18 @@ import axios from 'axios';
 
 export default function ConfirmationPage({seatsSelected}) {
     const [load, setLoad] = useState(true);
-
+    const body = {
+        ids: seatsSelected.map(s => s.idAssento),
+        compradores: seatsSelected.map(s => {
+            return {idAssento: s.idAssento, nome: s.nome, cpf: s.cpf}
+            }),
+    }
+    console.log(`body certo -> ${body}`);
+    console.log(`seats certo -> ${seatsSelected}`);
     useEffect(() => {
-        const body = {
-            ids: seatsSelected.map(s => s.idAssento),
-            compradores: seatsSelected,
-        }
+        
         axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many`, body)
         .then(res => {
-            console.log(`resp -> ${res}`);
-            console.log(`body -> ${body}`)
             setLoad(false);
         });
     },[]);
@@ -33,16 +35,14 @@ export default function ConfirmationPage({seatsSelected}) {
                 <div className="info">Enole Holmes</div>
                 <div>24/06/2021 15:00</div>
             </div>
-            <div className="section">
-                <div className="title">Ingressos</div>
-                <div className="info">Assento 15</div>
-                <div className="info">Assento 16</div>
-            </div>
-            <div className="section"> 
-                <div className="title">Comprador</div>
-                <div className="info">Nome: João da Silva Sauro</div>
-                <div className="info">CPF: 123.456.789-10</div>
-            </div>
+            {seatsSelected.map(seat => (
+                <div className="section">
+                    <div className="title">Ingresso e comprador</div>
+                    <div className="info">Assento {seat.seat}</div>
+                    <div className="info">Nome: {seat.nome}</div>
+                    <div className="info">CPF: {seat.cpf}</div>
+                </div>
+            ))}
             <button>Voltar para Home</button>
         </main>
     )

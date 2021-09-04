@@ -33,19 +33,17 @@ export default function App() {
         }
         else {
             setSeatsSelected(seatsSelected.filter((seat) => !(seat.idAssento === seatSelected.id)))
-            console.log(seatsSelected);
-            console.log(seatSelected);
         }
     }
-    function updateBuyerInfo(buyerName, buyerCpf, selectedId) {
+    function updateBuyerInfo(buyerName, buyerCpf, selectedId, seatName) {
         for(let i = 0; i < seatsSelected.length ; i ++) {
             if(seatsSelected[i].idAssento === selectedId) {
                 seatsSelected[i].nome = buyerName;
                 seatsSelected[i].cpf = buyerCpf;
+                seatsSelected[i].seat = seatName;
             }
         }
     }
-    console.log(`seatSelected:`, seatsSelected);
 
     return (
         <>

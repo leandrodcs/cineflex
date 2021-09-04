@@ -10,7 +10,7 @@ export default function BuyerInfo({selectedInfo, updateBuyerInfo, seatsInfo}) {
             seatName = seatsInfo[i].name;
         }
     }
-    updateBuyerInfo(buyerName, buyerCpf, selectedSeatId);
+    updateBuyerInfo(buyerName, buyerCpf, selectedSeatId, seatName);
 
     return (
         <>
