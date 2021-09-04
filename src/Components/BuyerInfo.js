@@ -3,18 +3,14 @@ import { useState } from "react";
 export default function BuyerInfo({selectedInfo, updateBuyerInfo, seatsInfo}) {
     const [buyerName, setBuyerName] = useState("");
     const [buyerCpf, setBuyerCpf] = useState("");
+    let selectedSeatId = selectedInfo.id;
     let seatName;
     for(let i = 0; i < seatsInfo.length ; i++) {
         if(seatsInfo[i].id === selectedInfo.id) {
             seatName = seatsInfo[i].name;
         }
     }
-    
-    console.log(`aqui -> ${seatName}`);
-    console.log(seatsInfo);
-
-
-
+    updateBuyerInfo(buyerName, buyerCpf, selectedSeatId);
 
     return (
         <>

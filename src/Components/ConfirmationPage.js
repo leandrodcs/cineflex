@@ -1,7 +1,9 @@
 import './ConfirmationPage.css';
+import Loading from './Loading';
 
 
 export default function ConfirmationPage() {
+
 
     return (
         <main className="wrapper">

@@ -29,15 +29,20 @@ export default function App() {
 
     function selectOrRemoveSeat(seatSelected, selecting) {
         if(selecting) {
-            setSeatsSelected([...seatsSelected, {id: seatSelected.id, nome: "", cpf: ""}])
+            setSeatsSelected([...seatsSelected, {id: seatSelected.id}])
         }
         else {
             setSeatsSelected(seatsSelected.filter((seat) => !(seat.id === seatSelected.id)))
         }
     }
-    function updateBuyerInfo() {
+    function updateBuyerInfo(buyerName, buyerCpf, selectedId) {
+        for(let i = 0; i < seatsSelected.length ; i ++) {
+            if(seatsSelected[i].id === selectedId) {
+                seatsSelected[i].nome = buyerName;
+                seatsSelected[i].cpf = buyerCpf;
+            }
+        }
     }
-
 
     return (
         <>

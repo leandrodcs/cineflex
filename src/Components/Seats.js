@@ -13,8 +13,6 @@ export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInf
     const {idSessao} = useParams();
     const [seatsInfo, setSeatsInfo] = useState([]);
 
-
-
     useEffect(() => {
         axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${idSessao}/seats`)
         .then(res => {
@@ -26,7 +24,6 @@ export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInf
             <Loading />
         )
     }
-
 
     return (
         <>
