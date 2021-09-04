@@ -8,7 +8,7 @@ import Seat from './Seat';
 import { Link } from 'react-router-dom';
 import BuyerInfo from './BuyerInfo';
 
-export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInfo}) {
+export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInfo, updateMovieInfo}) {
 
     const {idSessao} = useParams();
     const [seatsInfo, setSeatsInfo] = useState([]);
@@ -17,6 +17,7 @@ export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInf
         axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${idSessao}/seats`)
         .then(res => {
             setSeatsInfo(res.data);
+            updateMovieInfo(res.data);
             console.log(res.data);
         });
     },[]);

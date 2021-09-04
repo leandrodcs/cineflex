@@ -2,9 +2,10 @@ import './ConfirmationPage.css';
 import Loading from './Loading';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
-export default function ConfirmationPage({seatsSelected}) {
+export default function ConfirmationPage({seatsSelected, movieInfo, refreshPage}) {
     const [load, setLoad] = useState(true);
     const body = {
         ids: seatsSelected.map(s => s.idAssento),
@@ -32,8 +33,8 @@ export default function ConfirmationPage({seatsSelected}) {
             <div className="header confirmation">Pedido feito<br/>com sucesso!</div>
             <div className="section">
                 <div className="title">Filme e sessão</div>
-                <div className="info">Enole Holmes</div>
-                <div>24/06/2021 15:00</div>
+                <div className="info">{movieInfo.title}</div>
+                <div>{movieInfo.date} {movieInfo.time}</div>
             </div>
             {seatsSelected.map(seat => (
                 <div className="section">
@@ -43,7 +44,9 @@ export default function ConfirmationPage({seatsSelected}) {
                     <div className="info">CPF: {seat.cpf}</div>
                 </div>
             ))}
+            <Link to="/" onClick={refreshPage}>
             <button>Voltar para Home</button>
+            </Link>
         </main>
     )
 }

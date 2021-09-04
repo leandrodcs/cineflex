@@ -13,6 +13,7 @@ export default function App() {
 
     const [moviesList, setMoviesList] = useState([]);
     const [seatsSelected, setSeatsSelected] = useState([]);
+    const [movieInfo, setMovieInfo] = useState({})
 
     useEffect(() => {
         axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies`)
@@ -44,6 +45,12 @@ export default function App() {
             }
         }
     }
+    function updateMovieInfo(movieInfo) {
+        setMovieInfo({title: movieInfo.movie.title, date: movieInfo.day.date, time: movieInfo.name})
+    }
+    function refreshPage() {
+        setSeatsSelected([]);
+    }
 
     return (
         <>
@@ -57,10 +64,10 @@ export default function App() {
                         <Sessions /> 
                     </Route>
                     <Route exact path="/assentos/:idSessao">
-                        <Seats selectOrRemoveSeat={selectOrRemoveSeat} seatsSelected={seatsSelected} updateBuyerInfo={updateBuyerInfo}/>
+                        <Seats selectOrRemoveSeat={selectOrRemoveSeat} seatsSelected={seatsSelected} updateBuyerInfo={updateBuyerInfo} updateMovieInfo={updateMovieInfo}/>
                     </Route>
                     <Route exact path="/sucesso">
-                        <ConfirmationPage seatsSelected={seatsSelected}/>
+                        <ConfirmationPage seatsSelected={seatsSelected} movieInfo={movieInfo} refreshPage={refreshPage}/>
                     </Route>
                 </Switch>
             </BrowserRouter>
