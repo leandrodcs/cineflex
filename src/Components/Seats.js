@@ -18,7 +18,6 @@ export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInf
         .then(res => {
             setSeatsInfo(res.data);
             updateMovieInfo(res.data);
-            console.log(res.data);
         });
     },[]);
     if(seatsInfo.length === 0) {

@@ -7,16 +7,13 @@ import { Link } from 'react-router-dom';
 
 export default function ConfirmationPage({seatsSelected, movieInfo, refreshPage}) {
     const [load, setLoad] = useState(true);
-    const body = {
-        ids: seatsSelected.map(s => s.idAssento),
-        compradores: seatsSelected.map(s => {
-            return {idAssento: s.idAssento, nome: s.nome, cpf: s.cpf}
-            }),
-    }
-    console.log(`body certo -> ${body}`);
-    console.log(`seats certo -> ${seatsSelected}`);
     useEffect(() => {
-        
+        const body = {
+            ids: seatsSelected.map(s => s.idAssento),
+            compradores: seatsSelected.map(s => {
+                return {idAssento: s.idAssento, nome: s.nome, cpf: s.cpf}
+                }),
+        }
         axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many`, body)
         .then(res => {
             setLoad(false);

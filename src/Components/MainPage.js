@@ -10,7 +10,7 @@ export default function MainPage({moviesList}) {
                 {moviesList.map(({posterURL, id}) => (
                     <Link to={`/sessoes/${id}`} key={id}>
                         <li className="movie-banner">
-                            <img src={posterURL}/>
+                            <img src={posterURL} alt="Pôster do filme"/>
                         </li>
                     </Link>
                 ))}

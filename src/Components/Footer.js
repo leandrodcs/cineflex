@@ -21,7 +21,7 @@ export default function Footer({isSeat, movieInfo}) {
         <>
             <footer>
                 <div className="footer-banner">
-                    <img src={posterURL}/>
+                    <img src={posterURL} alt="Pôster do filme"/>
                 </div>
                 <div>
                     <div className="footer-title">{title}</div>
