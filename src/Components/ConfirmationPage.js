@@ -14,7 +14,7 @@ export default function ConfirmationPage({seatsSelected, movieInfo, refreshPage}
                 return {idAssento: s.idAssento, nome: s.nome, cpf: s.cpf}
                 }),
         }
-        axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many`, body)
+        axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many`, body)
         .then(res => {
             setLoad(false);
         });

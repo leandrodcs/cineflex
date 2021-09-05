@@ -16,7 +16,7 @@ export default function App() {
     const [movieInfo, setMovieInfo] = useState({})
 
     useEffect(() => {
-        axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies`)
+        axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies`)
         .then(res => {
             setMoviesList([...res.data])
         });
@@ -50,6 +50,7 @@ export default function App() {
     }
     function refreshPage() {
         setSeatsSelected([]);
+        window.scrollTo(0, 0);
     }
 
     return (
