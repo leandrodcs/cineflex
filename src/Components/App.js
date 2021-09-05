@@ -68,7 +68,7 @@ export default function App() {
                         <Sessions /> 
                     </Route>
                     <Route exact path="/assentos/:idSessao">
-                        <Seats selectOrRemoveSeat={selectOrRemoveSeat} seatsSelected={seatsSelected} updateBuyerInfo={updateBuyerInfo} updateMovieInfo={updateMovieInfo}/>
+                        <Seats refreshPage={refreshPage} selectOrRemoveSeat={selectOrRemoveSeat} seatsSelected={seatsSelected} updateBuyerInfo={updateBuyerInfo} updateMovieInfo={updateMovieInfo}/>
                     </Route>
                     <Route exact path="/sucesso">
                         <ConfirmationPage seatsSelected={seatsSelected} movieInfo={movieInfo} refreshPage={refreshPage}/>

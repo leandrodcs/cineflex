@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import BuyerInfo from './BuyerInfo';
 import TopButton from './TopButton';
 
-export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInfo, updateMovieInfo}) {
+export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInfo, updateMovieInfo, refreshPage}) {
 
     const {idSessao} = useParams();
     const [seatsInfo, setSeatsInfo] = useState([]);
@@ -31,7 +31,7 @@ export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInf
 
     return (
         <>
-            <TopButton movieId={movieId}/>
+            <TopButton movieId={movieId} refreshPage={refreshPage}/>
             <main className="wrapper">
                 <div className="header">{"Selecione o(s) assento(s)"}</div>
                 <ul className="seats">

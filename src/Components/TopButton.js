@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router';
 import './TopButton.css';
 
-export default function TopButton({movieId}) {
+export default function TopButton({movieId, refreshPage}) {
     let handleUrl;
     const history = useHistory()
     if(!movieId) {
@@ -12,6 +12,7 @@ export default function TopButton({movieId}) {
     else {
         handleUrl = () => {
             history.push(`/sessoes/${movieId}`);
+            refreshPage();
         }
     }
 
