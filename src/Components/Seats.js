@@ -7,17 +7,21 @@ import Loading from './Loading';
 import Seat from './Seat';
 import { Link } from 'react-router-dom';
 import BuyerInfo from './BuyerInfo';
+import TopButton from './TopButton';
 
 export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInfo, updateMovieInfo}) {
 
     const {idSessao} = useParams();
     const [seatsInfo, setSeatsInfo] = useState([]);
+    const [movieId, setmovieId] = useState(null);
 
     useEffect(() => {
         axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${idSessao}/seats`)
         .then(res => {
             setSeatsInfo(res.data);
+            setmovieId(res.data.movie.id);
             updateMovieInfo(res.data);
+            console.log(res.data);
         });
     },[]);
     if(seatsInfo.length === 0) {
@@ -28,6 +32,7 @@ export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInf
 
     return (
         <>
+            <TopButton movieId={movieId}/>
             <main className="wrapper">
                 <div className="header">{"Selecione o(s) assento(s)"}</div>
                 <ul className="seats">

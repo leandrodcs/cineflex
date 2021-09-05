@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Loading from './Loading';
 import { Link } from 'react-router-dom';
+import TopButton from './TopButton';
 
 export default function Sessions() {
 
@@ -25,6 +26,7 @@ export default function Sessions() {
 
     return (
         <>
+            <TopButton />
             <main className="wrapper">
                 <div className="header">Selecione o horário</div>
                 <ul className="days-list">
