@@ -34,7 +34,7 @@ export default function ConfirmationPage({seatsSelected, movieInfo, refreshPage}
                 <div>{movieInfo.date} {movieInfo.time}</div>
             </div>
             {seatsSelected.map(seat => (
-                <div className="section">
+                <div className="section" key={seat.seat}>
                     <div className="title">Ingresso e comprador</div>
                     <div className="info">Assento {seat.seat}</div>
                     <div className="info">Nome: {seat.nome}</div>

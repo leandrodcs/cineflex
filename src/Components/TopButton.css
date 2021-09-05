@@ -1,14 +1,14 @@
 .top-button {
-  width: 55px;
-  height: 50px;
+  width: 60px;
+  height: 67px;
   position: fixed;
-  top: 10px;
-  left: 10px;
+  top: 0px;
+  left: 0px;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
-  border-radius: 30px;
-  background: #e8833a;
+  color: #e8833a;
+  background: #c3cfd9;
+  font-size: 40px;
 }

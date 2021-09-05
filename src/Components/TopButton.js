@@ -16,6 +16,8 @@ export default function TopButton({movieId}) {
     }
 
     return (
-        <div className="top-button" onClick={handleUrl}>Revert</div>
+        <div className="top-button" onClick={handleUrl}>
+            <ion-icon name="arrow-back-outline"></ion-icon>
+        </div>
     )
 }

@@ -24,7 +24,10 @@ export default function App() {
 
     if(moviesList.length === 0) {
         return (
-            <Loading />
+            <>
+                <Header />
+                <Loading />
+            </>
         )
     }
 

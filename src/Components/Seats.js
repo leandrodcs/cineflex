@@ -21,7 +21,6 @@ export default function Seats({selectOrRemoveSeat, seatsSelected, updateBuyerInf
             setSeatsInfo(res.data);
             setmovieId(res.data.movie.id);
             updateMovieInfo(res.data);
-            console.log(res.data);
         });
     },[]);
     if(seatsInfo.length === 0) {
